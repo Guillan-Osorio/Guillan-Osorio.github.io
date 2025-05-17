@@ -27,7 +27,6 @@
             text-align: center;
             width: 100%;
         }
-        /* Header h1 flicker + glow */
         header h1 {
             color: #FFD700;
             animation: flickerGlow 3s infinite alternate;
@@ -90,7 +89,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border: 1px solid #444;
         }
-        /* Keep the glowing effect on the Gallery heading */
         #gallery h2 {
             text-shadow:
                 0 0 5px #FFD700,
@@ -129,17 +127,22 @@
             width: 100%;
             margin-top: auto;
         }
-        .gallery img, .gallery video {
+        .gallery img {
             width: 100%;
             height: auto;
             border-radius: 8px;
             margin-top: 15px;
+            cursor: pointer;
         }
         .gallery {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             justify-items: center;
+        }
+        a.youtube-link {
+            display: block;
+            width: 100%;
         }
     </style>
 </head>
@@ -154,22 +157,24 @@
         <section id="gallery">
             <h2>Gallery</h2>
             <div class="gallery">
-                <img src= "https://github.com/Guillan-Osorio/Guillan-Osorio.github.io/blob/main/images%20(1).jpg?raw=true" alt="Gallery Image 1">
-                <img src= "https://github.com/Guillan-Osorio/Guillan-Osorio.github.io/blob/main/images%20(3).jpg?raw=true" alt="Gallery Image 2">
-                <img src= "https://github.com/Guillan-Osorio/Guillan-Osorio.github.io/blob/main/maxresdefault.jpg?raw=true" alt="Gallery Image 3">
-                <img src= "https://github.com/Guillan-Osorio/Guillan-Osorio.github.io/blob/main/tfqckx5cxcb91.jpg?raw=true" alt="Gallery Image 4">
-                <video controls>
-                    <source src= "Guillan-Osorio.github.io/foxy-run.mp4" type="video/mp4" />
-                </video>
-                <video controls>
-                    <source src= "videos/video2.mp4" type="video/mp4" />
-                </video>
-                <video controls>
-                    <source src= "videos/video3.mp4" type="video/mp4" />
-                </video>
-                <video controls>
-                    <source src= "videos/video4.mp4" type="video/mp4" />
-                </video>
+                <img src="https://github.com/Guillan-Osorio/Guillan-Osorio.github.io/blob/main/images%20(1).jpg?raw=true" alt="Gallery Image 1">
+                <img src="https://github.com/Guillan-Osorio/Guillan-Osorio.github.io/blob/main/images%20(3).jpg?raw=true" alt="Gallery Image 2">
+                <img src="https://github.com/Guillan-Osorio/Guillan-Osorio.github.io/blob/main/maxresdefault.jpg?raw=true" alt="Gallery Image 3">
+                <img src="https://github.com/Guillan-Osorio/Guillan-Osorio.github.io/blob/main/tfqckx5cxcb91.jpg?raw=true" alt="Gallery Image 4">
+
+                <!-- YouTube Video Links as Thumbnails -->
+                <a href="https://www.youtube.com/watch?v=KzT8g3wz1xU" target="_blank" class="youtube-link">
+                    <img src="https://img.youtube.com/vi/KzT8g3wz1xU/hqdefault.jpg" alt="Foxy Running">
+                </a>
+                <a href="https://www.youtube.com/watch?v=UDrlH3A8a0M" target="_blank" class="youtube-link">
+                    <img src="https://img.youtube.com/vi/UDrlH3A8a0M/hqdefault.jpg" alt="Night 1 Gameplay">
+                </a>
+                <a href="https://www.youtube.com/watch?v=BbZl6zRZWrU" target="_blank" class="youtube-link">
+                    <img src="https://img.youtube.com/vi/BbZl6zRZWrU/hqdefault.jpg" alt="Security Breach Trailer">
+                </a>
+                <a href="https://www.youtube.com/watch?v=th_LYe97C-c" target="_blank" class="youtube-link">
+                    <img src="https://img.youtube.com/vi/th_LYe97C-c/hqdefault.jpg" alt="FNaF Lore Explained">
+                </a>
             </div>
         </section>
     </main>
