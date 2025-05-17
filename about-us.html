@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>About Us - Fazbear's Pizza</title>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			alert("Welcome to Fazbear's Pizza - About Us page!");
+
+			const aboutHeading = document.querySelector("#about h2");
+
+			setTimeout(() => {
+				aboutHeading.classList.add("shake");
+				aboutHeading.addEventListener("animationend", () => {
+					aboutHeading.classList.remove("shake");
+				});
+			}, 100);
+		});
+	</script>
+	<style>
+		body {
+			font-family: Helvetica, Arial, sans-serif;
+			line-height: 1.6;
+			margin: 0;
+			padding: 0;
+			background-color: #1C1C1C;
+			color: #f5f5f5;
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+		}
+		header {
+			background: #BB4C24;
+			color: #FFD700;
+			padding: 1rem;
+			width: 100%;
+			text-align: center;
+		}
+		header h1 {
+			animation: flicker 2s infinite;
+			text-shadow:
+				0 0 5px #FFD700,
+				0 0 10px #FFD700,
+				0 0 20px #FF8C00,
+				0 0 30px #FFD700;
+		}
+		@keyframes flicker {
+			0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+				opacity: 1;
+				text-shadow:
+					0 0 5px #FFD700,
+					0 0 10px #FFD700,
+					0 0 20px #FF8C00,
+					0 0 30px #FFD700;
+			}
+			20%, 24%, 55% {
+				opacity: 0.3;
+				text-shadow: none;
+			}
+		}
+		nav {
+			background: #2E2B2B;
+			padding: 0.5rem;
+			text-align: center;
+			width: 100%;
+			margin: 10px 0;
+			border: 2px solid #FFD700;
+			box-sizing: border-box;
+		}
+		nav a {
+			color: #1E90FF;
+			margin: 0 15px;
+			text-decoration: none;
+			font-size: 18px;
+		}
+		nav a:visited {
+			color: #800080;
+		}
+		nav a:hover {
+			color: #FFA500;
+		}
+		nav a:active {
+			color: #FF0000;
+		}
+		main {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+		section {
+			display: flex;
+			align-items: flex-start;
+			width: 80%;
+			max-width: 1000px;
+			padding: 20px;
+			background: #3A3A3A;
+			margin-bottom: 20px;
+			border-radius: 5px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			border: 1px solid #444;
+		}
+		section img {
+			width: 50%;
+			height: auto;
+			margin-right: 20px;
+			border-radius: 5px;
+		}
+		@keyframes shake {
+			0%, 100% { transform: translateX(0); }
+			20%, 60% { transform: translateX(-10px); }
+			40%, 80% { transform: translateX(10px); }
+		}
+		.shake {
+			animation: shake 0.5s ease;
+		}
+		#about h2 {
+			text-shadow:
+				0 0 5px #FFD700,
+				0 0 10px #FFD700,
+				0 0 20px #BB4C24,
+				0 0 30px #FFD700,
+				0 0 40px #FFD700;
+			animation: neonGlow 3s ease-in-out infinite alternate;
+		}
+		@keyframes neonGlow {
+			from {
+				text-shadow:
+					0 0 3px #FFD700,
+					0 0 5px #FFD700,
+					0 0 10px #BB4C24,
+					0 0 15px #FFD700,
+					0 0 20px #FFD700;
+				color: #FFD700;
+			}
+			to {
+				text-shadow:
+					0 0 10px #FFD700,
+					0 0 20px #FFD700,
+					0 0 30px #BB4C24,
+					0 0 40px #FFD700,
+					0 0 50px #FFD700;
+				color: #fffacd;
+			}
+		}
+		footer {
+			background: #BB4C24;
+			color: #FFD700;
+			text-align: center;
+			padding: 1rem;
+			width: 100%;
+			margin-top: auto;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>FAZBEAR'S PIZZA - About Us</h1>
+		<nav>
+			<a href="index.html">Home</a>
+		</nav>
+	</header>
+	<main>
+		<section id="about">
+			<img src="images/1122121.jpg" alt="Fazbear's Pizza" />
+			<div>
+				<h2>About Us</h2>
+				<p>
+					At Fazbear’s Pizza, we specialize in delivering not just delicious,
+					freshly made pizza, but a one-of-a-kind family entertainment
+					experience. Our restaurant brings people together with a fun,
+					nostalgic atmosphere featuring iconic animatronic performances, cozy
+					dining, and friendly service.
+				</p>
+				<p>
+					Since opening our doors, Fazbear’s has been the go-to spot for
+					birthday parties, family outings, and guests of all ages who want to
+					enjoy more than just a meal. We believe in creating lasting memories
+					through food, laughter, and a bit of Fazbear magic.
+				</p>
+				<p>
+					Whether you're here for a cheesy slice or to catch a show from Freddy
+					and the crew, our goal is to make every visit unforgettable. Come for
+					the pizza, stay for the experience—and leave with a smile.
+				</p>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2025 Freddy Fazbear and Friends</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fazbear Pizza Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0B0B0B;
+      font-family: Arial, sans-serif;
+      color: #FFD700;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      background-color: #BB4C24;
+      margin-bottom: 20px;
+      /* Make the text flicker and glow */
+    }
+
+    header h1 {
+      margin: 0;
+      color: #FFD700;
+      animation: flickerGlow 2.5s infinite alternate;
+      text-shadow:
+        0 0 5px #FFD700,
+        0 0 10px #FFA500,
+        0 0 20px #FF8C00,
+        0 0 30px #FFD700,
+        0 0 40px #FFA500;
+    }
+
+    @keyframes flickerGlow {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        text-shadow:
+          0 0 5px #FFD700,
+          0 0 10px #FFA500,
+          0 0 20px #FF8C00,
+          0 0 30px #FFD700,
+          0 0 40px #FFA500;
+      }
+      20%, 22%, 24%, 55% {
+        opacity: 0.6;
+        text-shadow: none;
+      }
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 20px;
+      width: 100%;
+      max-width: 1300px;
+    }
+
+    .card {
+      background-color: #1C1C1C;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      color: #f5f5f5;
+      box-shadow: 0 0 10px rgba(255, 140, 0, 0.2);
+    }
+
+    .card h3 {
+      color: #FFA500;
+      margin-bottom: 10px;
+    }
+
+    .big {
+      font-size: 2.2rem;
+      color: #1E90FF;
+    }
+
+    .stat-list {
+      margin-top: 10px;
+    }
+
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+    }
+
+    .trend-up { color: #00FF7F; }
+    .trend-down { color: #FF6347; }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .map-placeholder {
+      height: 200px;
+      background: #2e2b2b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 1000px) {
+      .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    nav a:hover {
+      color: #FFA500;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fazbear's Pizza - Ops Dashboard</h1>
+  </header>
+
+  <nav style="width: 100%; max-width: 1300px; margin-bottom: 20px;">
+    <div class="card" style="padding: 10px 20px; text-align: center;">
+      <a href="index.html" style="color: #FFD700; font-size: 18px; text-decoration: none; font-weight: bold;">
+        Home
+      </a>
+    </div>
+  </nav>
+
+  <div class="dashboard">
+
+    <div class="card">
+      <h3> Pizza Sales</h3>
+      <div class="big">$9.6K</div>
+      <div>Today</div>
+      <div class="trend-up">▲ $500 vs yesterday</div>
+    </div>
+
+    <div class="card">
+      <h3> Top Menu Items</h3>
+      <div class="stat-list">
+        <div class="stat-item"><span>Chica's Chicken</span><span>$3.2K</span></div>
+        <div class="stat-item"><span>Foxy's Pepperoni</span><span>$2.7K</span></div>
+        <div class="stat-item"><span>Bonnie’s BBQ</span><span>$2.3K</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3> Social Reach</h3>
+      <div class="stat-item"><span>Instagram</span><span>12.3K</span></div>
+      <div class="stat-item"><span>Twitter</span><span>9.1K</span></div>
+      <div class="stat-item trend-up">▲ +230 today</div>
+    </div>
+
+    <div class="card">
+      <h3> Website Visits</h3>
+      <div class="big">27.2K</div>
+      <div>Last 7 Days</div>
+      <div class="trend-down">▼ -28 enquiries</div>
+    </div>
+
+    <div class="card">
+      <h3> Customer Satisfaction</h3>
+      <div class="big">74</div>
+      <div>Net Promoter Score</div>
+    </div>
+
+    <div class="card">
+      <h3> Guest Feedback</h3>
+      <ul>
+        <li>"Very spooky but fun!" – 2h ago</li>
+        <li>"Pizza was " – 1d ago</li>
+        <li>"Animatronics are creepy af" – 2d ago</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3> Active Users</h3>
+      <div class="map-placeholder">In development</div>
+    </div>
+
+    <div class="card">
+      <h3> Next Show</h3>
+      <div class="big" id="showtime">00:45:17</div>
+      <div>Until Freddy goes live</div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Freddy Fazbear's Pizza | Night Shift Systems Inc.
+  </footer>
+
+  <script>
+    function startAnimatronicCountdown() {
+      let target = new Date();
+      target.setHours(target.getHours() + 1, 0, 0, 0);
+
+      function update() {
+        const now = new Date();
+        const diff = target - now;
+        if (diff <= 0) {
+          document.getElementById("showtime").textContent = "Now Showing!";
+          return;
+        }
+        const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+        const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+        const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+        document.getElementById("showtime").textContent = `${h}:${m}:${s}`;
+      }
+
+      setInterval(update, 1000);
+      update();
+    }
+
+    document.addEventListener("DOMContentLoaded", startAnimatronicCountdown);
+  </script>
+</body>
+</html>

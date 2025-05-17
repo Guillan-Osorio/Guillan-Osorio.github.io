@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact & Find Us - Fazbear's Pizza</title>
+  <style>
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #1C1C1C;
+    color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header {
+    background: #BB4C24;
+    color: #FFD700;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+  header h1 {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  nav {
+    background: #2E2B2B;
+    padding: 0.5rem;
+    text-align: center;
+    width: 100%;
+    margin: 10px 0;
+    border: 2px solid #FFD700;
+    box-sizing: border-box;
+  }
+  nav a {
+    color: #1E90FF;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  nav a:visited { color: #800080; }
+  nav a:hover { color: #FFA500; }
+  nav a:active { color: #FF0000; }
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  section {
+    width: 80%;
+    max-width: 1000px;
+    padding: 20px;
+    background: #3A3A3A;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #444;
+  }
+  footer {
+    background: #BB4C24;
+    color: #FFD700;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    margin-top: auto;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+  }
+  .contact-form button {
+    background-color: #FFD700;
+    color: #1C1C1C;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .map-section iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 15px;
+  }
+
+  .glitchy {
+    animation: glitch-flicker 1s infinite;
+  }
+
+  @keyframes glitch-flicker {
+    0% { text-shadow: none; }
+    20% { text-shadow: 1px 0 red, -1px 0 blue; }
+    40% { text-shadow: 0 0 2px yellow; }
+    60% { text-shadow: 2px 0 red, -2px 0 cyan; }
+    80% { text-shadow: 0 0 2px white; }
+    100% { text-shadow: none; }
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px #FFD700, 0 0 10px #FF8C00, 0 0 15px #FF4500;
+    }
+    to {
+      text-shadow: 0 0 10px #FFD700, 0 0 20px #FF8C00, 0 0 30px #FF4500;
+    }
+  }
+</style>
+
+</head>
+<body>
+  <header>
+    <h1>FAZBEAR'S PIZZA - Contact & Find Us</h1>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form class="contact-form" id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Why are you contacting us?" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section id="map">
+      <h3>How to Get Here</h3>
+      <p>We're located at 2933+2MR, Taldykorgan 040000, Kazakhstan via Google Maps:</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2821.0712513736535!2d78.3513184760657!3d45.00317496408115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x427f01c4962b6113%3A0x511057de0828d488!2sfreddy%20fazber%20pizza!5e0!3m2!1sen!2sph!4v1746776313530!5m2!1sen!2sph" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Freddy Fazbear and Friends</p>
+  </footer>
+
+  <script>
+    window.onload = function () {
+      alert("Welcome to Fazbear's Pizza! Feel free to contact us or find us on the map.");
+
+      const textElements = [...document.querySelectorAll('h1, h2, h3, p, button')];
+      const placeholderElements = [...document.querySelectorAll('input[placeholder], textarea[placeholder]')];
+      let index = 0;
+
+      function typeEffect(el, text, i = 0) {
+        if (i < text.length) {
+          el.textContent += text.charAt(i);
+          if (Math.random() < 0.05) {
+            el.style.textShadow = '0 0 5px red';
+            setTimeout(() => el.style.textShadow = '', 100);
+          }
+          setTimeout(() => typeEffect(el, text, i + 1), 40 + Math.random() * 80);
+        } else {
+          el.classList.add('glitchy');
+          index++;
+          if (index < textElements.length) {
+            animateElement(textElements[index]);
+          }
+        }
+      }
+
+      function animateElement(el) {
+        const original = el.textContent;
+        el.textContent = "";
+        typeEffect(el, original);
+      }
+
+      if (textElements.length > 0) {
+        animateElement(textElements[0]);
+      }
+
+      // Animate placeholder text
+      placeholderElements.forEach((el) => {
+        const original = el.getAttribute('placeholder');
+        el.setAttribute('placeholder', '');
+        let i = 0;
+        const interval = setInterval(() => {
+          el.setAttribute('placeholder', original.substring(0, i + 1));
+          i++;
+          if (i >= original.length) clearInterval(interval);
+        }, 50 + Math.random() * 70);
+      });
+    };
+
+    document.getElementById('contactForm').onsubmit = function(event) {
+      event.preventDefault();
+      alert("Thank you for contacting us! We'll get back to you soon.");
+    };
+  </script>
+</body>
+</html>
