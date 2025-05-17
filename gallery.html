@@ -27,6 +27,7 @@
             text-align: center;
             width: 100%;
         }
+        /* Header h1 flicker + glow */
         header h1 {
             color: #FFD700;
             animation: flickerGlow 3s infinite alternate;
@@ -89,6 +90,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border: 1px solid #444;
         }
+        /* Keep the glowing effect on the Gallery heading */
         #gallery h2 {
             text-shadow:
                 0 0 5px #FFD700,
@@ -127,12 +129,11 @@
             width: 100%;
             margin-top: auto;
         }
-        .gallery img {
+        .gallery img, .gallery iframe {
             width: 100%;
             height: auto;
             border-radius: 8px;
             margin-top: 15px;
-            cursor: pointer;
         }
         .gallery {
             display: grid;
@@ -140,9 +141,10 @@
             gap: 15px;
             justify-items: center;
         }
-        a.youtube-link {
-            display: block;
-            width: 100%;
+      
+        .gallery iframe {
+            aspect-ratio: 16 / 9;
+            max-height: 180px;
         }
     </style>
 </head>
@@ -162,19 +164,11 @@
                 <img src="https://github.com/Guillan-Osorio/Guillan-Osorio.github.io/blob/main/maxresdefault.jpg?raw=true" alt="Gallery Image 3">
                 <img src="https://github.com/Guillan-Osorio/Guillan-Osorio.github.io/blob/main/tfqckx5cxcb91.jpg?raw=true" alt="Gallery Image 4">
 
-                
-                <a href="https://www.youtube.com/watch?v=r11mz5jvHaU" target="_blank" class="youtube-link">
-                    <img src="https://img.youtube.com/vi/r11mz5jvHaUU/hqdefault.jpg" alt="Foxy Running">
-                </a>
-                <a href="https://www.youtube.com/watch?v=UDrlH3A8a0M" target="_blank" class="youtube-link">
-                    <img src="https://img.youtube.com/vi/UDrlH3A8a0M/hqdefault.jpg" alt="Night 1 Gameplay">
-                </a>
-                <a href="https://www.youtube.com/watch?v=BbZl6zRZWrU" target="_blank" class="youtube-link">
-                    <img src="https://img.youtube.com/vi/BbZl6zRZWrU/hqdefault.jpg" alt="Security Breach Trailer">
-                </a>
-                <a href="https://www.youtube.com/watch?v=th_LYe97C-c" target="_blank" class="youtube-link">
-                    <img src="https://img.youtube.com/vi/th_LYe97C-c/hqdefault.jpg" alt="FNaF Lore Explained">
-                </a>
+              
+                <iframe src="https://www.youtube.com/embed/r11mz5jvHaU" title="YouTube video 1" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/FuxA-t-pIdk?start=29" title="YouTube video 2" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/vVT2MUHRe_k?start=10" title="YouTube video 3" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/FUaaGInT_R8" title="YouTube video 4" frameborder="0" allowfullscreen></iframe>
             </div>
         </section>
     </main>
